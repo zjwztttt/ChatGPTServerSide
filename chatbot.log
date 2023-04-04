@@ -1,0 +1,82 @@
+2023-04-03 15:24:10,002 - INFO - User input: 你好！！！
+2023-04-03 15:24:10,003 - INFO - User input: text_tab
+2023-04-03 15:24:10,003 - INFO - User input: 你好！！！
+2023-04-03 15:24:13,062 - INFO - User input: 你好，有什么可以帮助您的吗？
+2023-04-03 15:44:18,032 - INFO - User input: 你好！！！
+2023-04-03 15:44:18,032 - INFO - tab_type: text_tab
+2023-04-03 15:44:18,032 - INFO - User input: 你好！！！
+2023-04-03 15:44:20,085 - INFO - output_text: 您好！有什么可以帮助您的吗？
+2023-04-03 15:44:39,690 - INFO - User input: 你好！！！
+2023-04-03 15:44:39,690 - INFO - tab_type: code_tab
+2023-04-03 15:44:39,690 - INFO - User input: 你好
+2023-04-03 15:44:42,508 - INFO - User input: 你好！！！
+2023-04-03 15:44:42,508 - INFO - tab_type: code_tab
+2023-04-03 15:44:42,509 - INFO - User input: 你好
+2023-04-03 15:49:21,963 - INFO - User input: 你好！！！
+2023-04-03 15:49:21,963 - INFO - tab_type: code_tab
+2023-04-03 15:49:21,964 - INFO - User input: 你好
+2023-04-03 15:49:22,709 - INFO - error_code=model_not_found error_message='The model: `code-davinci-002` does not exist' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-04-03 15:58:42,224 - INFO - User input: 你好！！！
+2023-04-03 15:58:42,224 - INFO - tab_type: code_tab
+2023-04-03 15:58:42,224 - INFO - User input: 你好
+2023-04-03 15:58:45,375 - INFO - Response: 您好，有什么需要我的帮助吗？
+2023-04-03 16:23:25,725 - INFO - tab_type: image_tab
+2023-04-03 16:23:25,726 - INFO - User input: 你好
+2023-04-03 16:23:32,990 - INFO - Response: https://oaidalleapiprodscus.blob.core.windows.net/private/org-Bj0iwXaHjBrQwX7IJDNLBQ9L/user-bNECo6NJxYqnK6TxCkk8rewM/img-arhijuobQsT0wGQ6CuiixccT.png?st=2023-04-03T07%3A23%3A28Z&se=2023-04-03T09%3A23%3A28Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-04-03T06%3A05%3A10Z&ske=2023-04-04T06%3A05%3A10Z&sks=b&skv=2021-08-06&sig=KLsmB3crvyHW7DMWdF%2BWyXmKD3J/RudEEEia/X2U/jw%3D
+2023-04-03 16:39:16,611 - INFO - tab_type: code_tab
+2023-04-03 16:39:16,611 - INFO - User input: 用java写一段冒泡排序
+2023-04-03 16:39:33,078 - INFO - Response: 冒泡排序是一种简单的排序算法，它反复地遍历要排序的数列，每次比较相邻两个元素，如果它们的顺序错误，则交换它们。
+
+下面是用Java实现冒泡排序的示例代码：
+
+```java
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 4, 1, 5};
+        bubbleSort(arr);
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public static void bubbleSort(int[] arr) {
+        int len = arr.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+```
+
+输出结果为：`1 2 3 4 5`。
+2023-04-03 17:05:28,092 - INFO - tab_type: code_tab
+2023-04-03 17:05:28,092 - INFO - User input: 用java写一段冒泡排序
+2023-04-03 17:05:42,475 - INFO - output_code: 以下是使用 Java 编写的冒泡排序代码示例：
+
+```java
+public static void bubbleSort(int[] arr) {
+    int n = arr.length;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // swap arr[j+1]和arr[i]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+```
+
+在该示例中，我们使用两个循环嵌套实现了冒泡排序。外部循环从第一个元素开始遍历数组，内部循环从第一个元素到尾元素，并比较相邻两个元素的大小。如果前面的元素大于后面的元素，则交换它们的位置。重复执行这个过程，直到数组完全有序为止。
+2023-04-03 17:32:47,365 - INFO - tab_type: text_tab
+2023-04-03 17:32:47,365 - INFO - User input: 你好
+2023-04-03 17:32:49,454 - INFO - output_text: 你好！有什么可以为您效劳的吗？

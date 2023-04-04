@@ -1,0 +1,32 @@
+[WEBUI]
+
+[servers]
+
+# false：不验证请求端；True：验证请求端
+Authentication_Status = 'false'
+
+# 定义ChatGPT的key
+Api_key = "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"
+
+# 生成文本的模型;可以去这个网址获取最新语言模型：https://platform.openai.com/docs/models
+text_model = 'gpt-3.5-turbo'
+
+# 生成代码的模型
+code_model = 'code-davinci-002'
+
+# 生产图片的关键字
+image_keyword = ["看", "画", "照片", "泰山", "黄山", "风景", "美女"] #生成图片关键字
+
+# 定义ChatGPT的角色;需要重启服务才能生效
+chatgpt_user = "一个全能型家庭助手"
+
+# 定义用户访问的IP和端口
+web_host = 'localhost'
+web_port = 3000
+
+[database]
+#sql_type: MySQL #MySQL,SQLLite,SQLServer,OracleSQL
+#host: localhost
+#port: 3306
+#username: root
+#password: password123

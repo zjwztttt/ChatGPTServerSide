@@ -1,0 +1,14 @@
+### Send request with dynamic variables in request's body
+POST http://localhost:3000/jscsbchcbhsj
+Content-Type: application/json
+
+{
+  "tab_type": "text_tab",
+  "message_type": "text",
+  "message_text": "你好！！！",
+  "sender": "user",
+  "Customer_name": "",
+  "Authentication_Code": ""
+}
+
+###
