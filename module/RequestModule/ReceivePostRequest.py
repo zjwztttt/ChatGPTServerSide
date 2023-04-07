@@ -81,15 +81,15 @@ async def chatgpt(request: Request):  # put application's code here
 
                         # 添加日志记录
                         logging.info(f"output_text: {output_text}")
-                        return json.dumps({'code': 200, 'type': 'Code', 'message': output_text})
+                        return {'code': 200, 'type': 'Code', 'message': output_text}
 
                     else:
                         print("请传递文本消息")
-                        return json.dumps({'code': 504, 'type': 'error', 'message': "请传递文本消息"})
+                        return {'code': 504, 'type': 'error', 'message': "请传递文本消息"}
 
                 else:
                     print("消息类型不能为空")
-                    return json.dumps({'code': 504, 'type': 'error', 'message': "消息类型不能为空"})
+                    return {'code': 504, 'type': 'error', 'message': "消息类型不能为空"}
 
 
             elif tab_type == "code_tab":
@@ -117,7 +117,7 @@ async def chatgpt(request: Request):  # put application's code here
                             output_code = completion.choices[0].message.content
                         except (KeyError, IndexError):
                             print("无法获取代码")
-                            return json.dumps({'code': 504, 'type': 'error', 'message': "无法获取代码"})
+                            return {'code': 504, 'type': 'error', 'message': "无法获取代码"}
 
                         # 判断是否为代码
                         lang, code = detect_code(output_code)
@@ -128,7 +128,7 @@ async def chatgpt(request: Request):  # put application's code here
                             print(output_code)
                             # 添加日志记录
                             logging.info(f"output_code: {output_code}")
-                            return json.dumps({'code': 200, 'type': 'code', 'lang': lang, 'message': code})
+                            return {'code': 200, 'type': 'code', 'lang': lang, 'message': code}
 
                         else:
 
@@ -137,16 +137,16 @@ async def chatgpt(request: Request):  # put application's code here
                             print(output_code)
                             # 添加日志记录
                             logging.info(f"output_code: {output_code}")
-                            return json.dumps({'code': 200, 'type': 'text', 'message': output_code})
+                            return {'code': 200, 'type': 'text', 'message': output_code}
 
 
                     else:
                         print("请传递文本消息")
-                        return json.dumps({'code': 504, 'type': 'error', 'message': "请传递文本消息"})
+                        return {'code': 504, 'type': 'error', 'message': "请传递文本消息"}
 
                 else:
                     print("消息类型不能为空")
-                    return json.dumps({'code': 504, 'type': 'error', 'message': "消息类型不能为空"})
+                    return {'code': 504, 'type': 'error', 'message': "消息类型不能为空"}
 
 
             elif tab_type == "image_tab":
@@ -166,13 +166,13 @@ async def chatgpt(request: Request):  # put application's code here
                             image_url = response['data'][0]['url'].strip()
                         except (KeyError, IndexError):
                             print("无法获取图片 URL")
-                            return json.dumps({'code': 504, 'type': 'error', 'message': "无法获取图片 URL"})
+                            return {'code': 504, 'type': 'error', 'message': "无法获取图片 URL"}
 
                         # 检查图片 URL 是否安全
                         parsed_url = urlparse(image_url)
                         if parsed_url.scheme != 'https' or parsed_url.hostname is None:
 
-                            return json.dumps({'code': 504, 'type': 'error', 'message': "无效的图片 URL"})
+                            return {'code': 504, 'type': 'error', 'message': "无效的图片 URL"}
 
                         else:
                             time.sleep(1)  # 添加 1 秒的延迟
@@ -187,15 +187,15 @@ async def chatgpt(request: Request):  # put application's code here
                             # print("你将图片转换成的Base64编码是：",img_str)
                             # 添加日志记录
                             logging.info(f"image_url: {image_url}")
-                            return json.dumps({'code': 200, 'type': 'image', 'message': image_url})
+                            return {'code': 200, 'type': 'image', 'message': image_url}
 
                     else:
                         print("请传递文本消息")
-                        return json.dumps({'code': 504, 'type': 'error', 'message': "请传递文本消息"})
+                        return {'code': 504, 'type': 'error', 'message': "请传递文本消息"}
 
                 else:
                     print("消息类型不能为空")
-                    return json.dumps({'code': 504, 'type': 'error', 'message': "消息类型不能为空"})
+                    return {'code': 504, 'type': 'error', 'message': "消息类型不能为空"}
 
 
             elif tab_type == "video_tab":
@@ -206,13 +206,13 @@ async def chatgpt(request: Request):  # put application's code here
             elif not tab_type:
 
                 print("发起请求时请求类型不能为空！！！")
-                return json.dumps({'code': 504, 'type': 'error', 'message': "发起请求时请求类型不能为空！！！"})
+                return {'code': 504, 'type': 'error', 'message': "发起请求时请求类型不能为空！！！"}
 
 
             else:
 
                 print("目前还不支持" + tab_type + "请求类型")
-                return json.dumps({'code': 504, 'type': 'error', 'message': "目前还不支持" + tab_type + "请求类型"})
+                return {'code': 504, 'type': 'error', 'message': "目前还不支持" + tab_type + "请求类型"}
 
 
         elif Authentication_Status == "True":
@@ -224,7 +224,7 @@ async def chatgpt(request: Request):  # put application's code here
             else:
 
                 print("认证失败")
-                return json.dumps({'code': 504, 'type': 'error', 'message': "认证失败"})
+                return {'code': 504, 'type': 'error', 'message': "认证失败"}
 
         else:
 
@@ -234,4 +234,4 @@ async def chatgpt(request: Request):  # put application's code here
 
     except Exception as e:
         # 返回错误信息
-        return json.dumps({'error': str(e)})
+        return {'error': "请携带参数请求"+str(e)}
