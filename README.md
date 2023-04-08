@@ -29,6 +29,11 @@
     pip3 install openai
 ### 启动项目
     nohup python3 -u app.py > nohup.log 2>&1 &
+### 编辑计划任务
+     crontab -e
+### 黏贴以下命令
+    0 5 * * * cd /root/ChatGPTServerSide && nohup python3 -u app.py > nohup.log 2>&1 &
+#### 这表示每天凌晨5点启动服务
 ### 创建服务
     nano /etc/systemd/system/ChatGPTServerSide.service
 ### 黏贴以下命令
