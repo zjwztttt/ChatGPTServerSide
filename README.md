@@ -33,7 +33,7 @@
      crontab -e
 ### 黏贴以下命令
     0 5 * * * cd /root/ChatGPTServerSide && nohup python3 -u app.py > nohup.log 2>&1 &
-#### 这表示每天凌晨5点启动服务
+##### 这表示每天凌晨5点启动服务
 ### 创建服务
     nano /etc/systemd/system/ChatGPTServerSide.service
 ### 黏贴以下命令
