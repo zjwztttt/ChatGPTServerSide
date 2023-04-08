@@ -40,6 +40,7 @@
     [Unit]
     Description=ChatGPTServerSide
     After=network.target
+    Wants=network.target
 
     [Service]
     ExecStart=nohup python3 -u /root/ChatGPTServerSide/app.py > nohup.log 2>&1 &
