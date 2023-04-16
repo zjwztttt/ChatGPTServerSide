@@ -20,6 +20,10 @@
 ### 安装uvicorn
     pip3 install uvicorn
 ##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
+### 安装geoip2
+    pip3 install geoip2
+### 安装geocoder
+    pip3 install geocoder
 ### 安装starlette(可选:在我本机编译器上没有提示安装此模块，但是在测试的时候部署在云服务器上时提示`ModuleNotFoundError: No module named 'starlette'`错误)
     pip3 install starlette
 ##### Starlette 是一个轻量级的 ASGI 框架，适用于构建高性能的异步 Web 应用程序。它是由编写过 Flask 和 Werkzeug 的同一组开发人员创建的，因此在设计上有很多相似之处。Starlette 具有简单易用的 API，支持 WebSocket、HTTP/2 和 GraphQL 等协议，可以与任何 ASGI 服务器一起使用
