@@ -35,7 +35,9 @@
     pip3 install openai
 ### 启动项目
     nohup python3 -u app_name.py > nohup.log 2>&1 &
-### 如果想支持http2协议请用以下命令启动项目(http2服务端必须申请证书)
+### 如果想支持http2协议你必须运行以下命令安装支持http2的服务器
+    pip3 install hypercorn
+### 然后用此命令启动项目(http2服务端必须申请证书)
     hypercorn app_name:app
 ### 编辑计划任务
      crontab -e
