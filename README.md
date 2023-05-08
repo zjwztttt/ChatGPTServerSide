@@ -38,7 +38,7 @@
 ### 如果想支持http2协议你必须运行以下命令安装支持http2的服务器
     pip3 install hypercorn
 ### 然后用此命令启动项目(http2服务端必须申请证书)
-    hypercorn --keyfile key.pem --certfile cert.pem app_name:app
+    hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
 ### 编辑计划任务
      crontab -e
 ### 黏贴以下命令
