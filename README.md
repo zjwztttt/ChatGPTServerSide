@@ -34,7 +34,9 @@
 ### 安装openai
     pip3 install openai
 ### 启动项目
-    nohup python3 -u app.py > nohup.log 2>&1 &
+    nohup python3 -u app_name.py > nohup.log 2>&1 &
+### 如果想支持http2协议请用以下命令启动项目(http2服务端必须申请证书)
+    hypercorn app_name:app
 ### 编辑计划任务
      crontab -e
 ### 黏贴以下命令
