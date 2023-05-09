@@ -40,7 +40,7 @@
 ### 然后用此命令启动项目(http2服务端必须申请证书)
     hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
 ### 关闭进程
-    kill $(cat /var/run/hypercorn.pid)
+    kill -9 `ps aux | grep app.py | grep -v grep | awk '{print $2}'`
 ### 编辑计划任务
      crontab -e
 ### 黏贴以下命令
