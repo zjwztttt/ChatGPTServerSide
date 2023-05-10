@@ -33,14 +33,9 @@
     pip3 install openai
 ### 安装Hypercorn
     pip3 install hypercorn
-##### Hypercorns是一个基于asyncio的ASGI服务器
+##### Hypercorns是一个基于asyncio的ASGI服务器，它支持HTTP/2和HTTP/3协议，早期版本是不支持它的，启动项目之前请先查看[差异描述](https://github.com/zjwztttt/ChatGPTServerSide/blob/master/DifferentialDescription.md)
 ### 启动项目
     nohup python3 -u app_name.py > nohup.log 2>&1 &
-### 安装uvicorn(v23.05.08.0007(含)版本之前需要)
-    pip3 install uvicorn
-##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
-### 然后用此命令启动项目(http2服务端必须申请证书)
-    hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
 ### 关闭进程
     kill -9 `ps aux | grep app.py | grep -v grep | awk '{print $2}'`
 ### 编辑计划任务
