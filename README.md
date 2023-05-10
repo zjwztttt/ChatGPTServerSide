@@ -17,9 +17,6 @@
 ### 安装pip3
 ##### Debian
     apt install -y python3-pip
-### 安装uvicorn
-    pip3 install uvicorn
-##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
 ### 安装geoip2
     pip3 install geoip2
 ### 安装geocoder
@@ -33,12 +30,15 @@
     pip3 install fastapi
 ### 安装openai
     pip3 install openai
-### 启动项目
-    nohup python3 -u app_name.py > nohup.log 2>&1 &
 ### 如果想支持http2协议你必须运行以下命令安装支持http2的服务器
     pip3 install hypercorn
 ### 然后用此命令启动项目(http2服务端必须申请证书)
     hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
+### 安装uvicorn
+    pip3 install uvicorn
+##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
+### 启动项目
+    nohup python3 -u app_name.py > nohup.log 2>&1 &
 ### 关闭进程
     kill -9 `ps aux | grep app.py | grep -v grep | awk '{print $2}'`
 ### 编辑计划任务
