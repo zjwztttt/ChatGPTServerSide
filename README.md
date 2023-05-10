@@ -10,6 +10,7 @@
 #### 2.Finalshell远程链接工具（主要用来远程云服务器）
 ## 搭建环境(本教程基于Debian11系统，其他系统有些操作命令可能不受支持，请自行百度解决办法！)
 ### 更新系统
+    apt upgrade && apt update -y
 ### 安装Python3
 #### 安装python的方法有很多，咱这里只使用最简单的一种，有些云服务器不支持请自行百度另外的方法！
 ##### Debian
@@ -30,15 +31,16 @@
     pip3 install fastapi
 ### 安装openai
     pip3 install openai
-### 如果想支持http2协议你必须运行以下命令安装支持http2的服务器
+### 安装Hypercorn
     pip3 install hypercorn
-### 然后用此命令启动项目(http2服务端必须申请证书)
-    hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
-### 安装uvicorn
-    pip3 install uvicorn
-##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
+##### Hypercorns是一个支持http2的服务器
 ### 启动项目
     nohup python3 -u app_name.py > nohup.log 2>&1 &
+### 安装uvicorn(v23.05.08.0007(含)版本之前需要)
+    pip3 install uvicorn
+##### Uvicorn是一个基于Python的ASGI（异步服务器网关接口）Web服务器
+### 然后用此命令启动项目(http2服务端必须申请证书)
+    hypercorn --keyfile key.pem --certfile cert.pem app_name:app --bind 0.0.0.0:8000 --workers 4 --access-logfile /var/log/hypercorn.log --error-logfile /var/log/hypercorn.log --daemon
 ### 关闭进程
     kill -9 `ps aux | grep app.py | grep -v grep | awk '{print $2}'`
 ### 编辑计划任务
