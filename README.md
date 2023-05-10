@@ -11,7 +11,7 @@
 #### 3.更新系统
     apt upgrade && apt update -y
 ## 下载项目
-    
+    git clone https://github.com/zjwztttt/ChatGPTServerSide/releases/tag/v23.05.10.0008
 ## 搭建环境(本教程基于Debian11系统，其他系统有些操作命令可能不受支持，请自行百度解决办法！)
 ### 安装Python3
 #### 安装python的方法有很多，咱这里只使用最简单的一种，有些云服务器不支持请自行百度另外的方法！
