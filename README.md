@@ -34,7 +34,7 @@
 ### 安装openai
     pip3 install openai
 ### 安装Hypercorn
-    pip3 install hypercorn
+    pip3 install hypercorn[h3]
 ##### Hypercorns是一个基于asyncio的ASGI服务器，它支持HTTP/2和HTTP/3协议，早期版本是不支持它的，启动项目之前请先查看[差异描述](https://github.com/zjwztttt/ChatGPTServerSide/blob/master/DifferentialDescription.md)
 ### 启动项目
     nohup python3 -u app_name.py > nohup.log 2>&1 &
